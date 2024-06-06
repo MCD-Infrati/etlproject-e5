@@ -438,7 +438,7 @@
   <order>
   </order>
   <step>
-    <name>MongoDB input</name>
+    <name>BSMT - MongoDB</name>
     <type>MongoDbInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -487,7 +487,7 @@
     </GUI>
   </step>
   <step>
-    <name>MongoDB input 2</name>
+    <name>GARAGE - MongoDB</name>
     <type>MongoDbInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -536,7 +536,7 @@
     </GUI>
   </step>
   <step>
-    <name>MongoDB input 3</name>
+    <name>MISC - MongoDB</name>
     <type>MongoDbInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -585,7 +585,7 @@
     </GUI>
   </step>
   <step>
-    <name>MongoDB input 4</name>
+    <name>POOL - MongoDB</name>
     <type>MongoDbInput</type>
     <description/>
     <distribute>Y</distribute>
