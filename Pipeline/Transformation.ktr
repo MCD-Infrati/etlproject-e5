@@ -676,18 +676,19 @@
       <schema_name/>
     </partitioning>
     <connection>Elephane</connection>
-    <sql>SELECT 
+    <sql>SELECT DISTINCT
     amesdbtemp.*,
     mssubclass.description AS mssubclass_description,
     mszoning.description AS mszoning_description,
-    floordetail.bedrooms,
-    floordetail."Full Bath",
-    floordetail."Half Bath",
+    MAX(floordetail.bedrooms) OVER (PARTITION BY floordetail.pid) AS bedrooms,
+    MAX(floordetail."Full Bath") OVER (PARTITION BY floordetail.pid) AS "Full Bath",
+    MAX(floordetail."Half Bath") OVER (PARTITION BY floordetail.pid) AS "Half Bath",
     saleproperty.saleprice,
     A.description AS "Exter Qual",
    B.description AS "Heating QC",
    C.description AS "Exter Cond",
    D.description AS "Kitchen Qual"
+    
 FROM 
     amesdbtemp
 LEFT JOIN 
