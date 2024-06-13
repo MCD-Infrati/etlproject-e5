@@ -528,38 +528,13 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter rows</from>
-      <to>Text file output 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>Text file output</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Consulta_Elephane</from>
       <to>Select values 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values 2</from>
-      <to>Text file output 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>AmesProperty CSV</from>
       <to>Multiway merge join 4</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values 2</from>
-      <to>Multiway merge join 4</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Multiway merge join 4</from>
-      <to>Text file output 4</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -578,11 +553,281 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Select values 2</from>
+      <to>Extract month and year</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Extract month and year</from>
+      <to>Multiway merge join 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Multiway merge join 5</from>
+      <to>Select values 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 4</from>
+      <to>Calculator</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculator</from>
       <to>Text file output 5</to>
       <enabled>Y</enabled>
     </hop>
   </order>
+  <step>
+    <name>AmesProperty CSV</name>
+    <type>CsvInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <filename>C:\Users\1143835519\OneDrive\GITHUB\etlproject-e5\sources\AmesProperty.csv</filename>
+    <filename_field/>
+    <rownum_field/>
+    <include_filename>N</include_filename>
+    <separator>;</separator>
+    <enclosure/>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <format>mixed</format>
+    <encoding/>
+    <fields>
+      <field>
+        <name>PID</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Lot Frontage</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Lot Area</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Street</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Alley</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Lot Shape</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>20</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Land Contour</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Utilities</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Lot Config</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>7</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Land Slope</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Neighborhood</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>19</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Condition 1</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>30</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Condition 2</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Bldg Type</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>House Style</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Overall Qual</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Overall Cond</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Year Built</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Year Remod/Add</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>BSMT - MongoDB</name>
     <type>MongoDbInput</type>
@@ -715,10 +960,10 @@
     amesdbtemp.*,
     mssubclass.description AS mssubclass_description,
     mszoning.description AS mszoning_description,
-    MAX(floordetail.bedrooms) OVER (PARTITION BY floordetail.pid) AS bedrooms,
-    MAX(floordetail."Full Bath") OVER (PARTITION BY floordetail.pid) AS "Full Bath",
-    MAX(floordetail."Half Bath") OVER (PARTITION BY floordetail.pid) AS "Half Bath",
-    saleproperty.saleprice,
+    SUM(floordetail.bedrooms) OVER (PARTITION BY floordetail.pid) AS bedrooms,
+    SUM(floordetail."Full Bath") OVER (PARTITION BY floordetail.pid) AS "Full Bath",
+    SUM(floordetail."Half Bath") OVER (PARTITION BY floordetail.pid) AS "Half Bath",
+	saleproperty.*,
     A.description AS "Exter Qual",
    B.description AS "Heating QC",
    C.description AS "Exter Cond",
@@ -771,7 +1016,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -794,7 +1039,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -817,7 +1062,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -840,7 +1085,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -863,7 +1108,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -886,7 +1131,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -909,7 +1154,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -932,7 +1177,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -955,7 +1200,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -978,7 +1223,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1001,7 +1246,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1024,7 +1269,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1047,7 +1292,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1070,7 +1315,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1093,7 +1338,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1116,7 +1361,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1139,7 +1384,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1162,7 +1407,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1185,7 +1430,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1208,7 +1453,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1231,7 +1476,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1254,7 +1499,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1277,7 +1522,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1300,7 +1545,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1323,7 +1568,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1346,7 +1591,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1369,7 +1614,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1392,7 +1637,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1415,7 +1660,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1438,7 +1683,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1461,7 +1706,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1484,7 +1729,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1507,7 +1752,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1530,21 +1775,21 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Integer</type>
+        <type>BigNumber</type>
         <storagetype>normal</storagetype>
         <name>bedrooms</name>
-        <length>15</length>
-        <precision>0</precision>
+        <length>-1</length>
+        <precision>-1</precision>
         <origin>Consulta_Elephane</origin>
         <comments>bedrooms</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
@@ -1553,21 +1798,21 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Integer</type>
+        <type>BigNumber</type>
         <storagetype>normal</storagetype>
         <name>Full Bath</name>
-        <length>15</length>
-        <precision>0</precision>
+        <length>-1</length>
+        <precision>-1</precision>
         <origin>Consulta_Elephane</origin>
         <comments>Full Bath</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
@@ -1576,18 +1821,41 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>Half Bath</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Consulta_Elephane</origin>
+        <comments>Half Bath</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
-        <name>Half Bath</name>
+        <name>pid_1</name>
         <length>15</length>
         <precision>0</precision>
         <origin>Consulta_Elephane</origin>
-        <comments>Half Bath</comments>
+        <comments>pid</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -1599,7 +1867,76 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>Sale Date</name>
+        <length>6</length>
+        <precision>-1</precision>
+        <origin>Consulta_Elephane</origin>
+        <comments>Sale Date</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_CO</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>Sale Type</name>
+        <length>5</length>
+        <precision>-1</precision>
+        <origin>Consulta_Elephane</origin>
+        <comments>Sale Type</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_CO</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>Sale Condition</name>
+        <length>7</length>
+        <precision>-1</precision>
+        <origin>Consulta_Elephane</origin>
+        <comments>Sale Condition</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1622,7 +1959,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1645,7 +1982,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1668,7 +2005,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1691,7 +2028,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1714,7 +2051,7 @@ ORDER BY amesdbtemp.pid;
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>es_CO</date_format_locale>
         <date_format_timezone>America/Bogota</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1729,7 +2066,7 @@ ORDER BY amesdbtemp.pid;
     </remotesteps>
     <GUI>
       <xloc>464</xloc>
-      <yloc>32</yloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2040,6 +2377,72 @@ ORDER BY amesdbtemp.pid;
     </GUI>
   </step>
   <step>
+    <name>Multiway merge join 4</name>
+    <type>MultiwayMergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step0>Extract month and year</step0>
+    <step1>AmesProperty CSV</step1>
+    <number_input>2</number_input>
+    <keys>
+      <key>pid</key>
+      <key>PID</key>
+    </keys>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Multiway merge join 5</name>
+    <type>MultiwayMergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step0>Filter rows</step0>
+    <step1>Select values 3</step1>
+    <number_input>2</number_input>
+    <keys>
+      <key>PID</key>
+      <key>pid</key>
+    </keys>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>POOL - MongoDB</name>
     <type>MongoDbInput</type>
     <description/>
@@ -2124,75 +2527,99 @@ ORDER BY amesdbtemp.pid;
     <fields>
       <field>
         <name>PID</name>
+        <rename/>
       </field>
       <field>
         <name>BsmtFin Type 1</name>
+        <rename/>
       </field>
       <field>
         <name>BsmtFin Type 2</name>
+        <rename/>
       </field>
       <field>
         <name>BsmtFin SF 1</name>
+        <rename/>
       </field>
       <field>
         <name>BsmtFin SF 2</name>
+        <rename/>
       </field>
       <field>
         <name>Bsmt Exposure</name>
+        <rename/>
       </field>
       <field>
         <name>Bsmt Half Bath</name>
+        <rename/>
       </field>
       <field>
         <name>Bsmt Full Bath</name>
+        <rename/>
       </field>
       <field>
         <name>Bsmt Cond</name>
+        <rename/>
       </field>
       <field>
         <name>Bsmt Unf SF</name>
+        <rename/>
       </field>
       <field>
         <name>Bsmt Qual</name>
+        <rename/>
       </field>
       <field>
         <name>Total Bsmt SF</name>
+        <rename/>
       </field>
       <field>
         <name>Order</name>
+        <rename/>
       </field>
       <field>
         <name>Garage Cond</name>
+        <rename/>
       </field>
       <field>
         <name>Garage Type</name>
+        <rename/>
       </field>
       <field>
         <name>Garage Yr Blt</name>
+        <rename/>
       </field>
       <field>
         <name>Garage Cars</name>
+        <rename/>
       </field>
       <field>
         <name>Garage Qual</name>
+        <rename/>
       </field>
       <field>
         <name>Garage Finish</name>
+        <rename/>
       </field>
       <field>
         <name>Garage Area</name>
+        <rename/>
       </field>
       <field>
         <name>Misc Feature</name>
+        <rename/>
       </field>
       <field>
         <name>Misc Val</name>
+        <rename/>
       </field>
       <field>
         <name>Pool QC</name>
+        <rename/>
       </field>
       <field>
         <name>Pool Area</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -2206,120 +2633,6 @@ ORDER BY amesdbtemp.pid;
     </remotesteps>
     <GUI>
       <xloc>368</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Text file output 2</name>
-    <type>TextFileOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <separator>;</separator>
-    <enclosure>"</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>D:\\False</name>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery/>
-    </file>
-    <fields>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>464</xloc>
-      <yloc>336</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Text file output</name>
-    <type>TextFileOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <separator>;</separator>
-    <enclosure>"</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>D:\\True</name>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery/>
-    </file>
-    <fields>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2341,6 +2654,26 @@ ORDER BY amesdbtemp.pid;
         <rename/>
       </field>
       <field>
+        <name>Exter Cond</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Exter Qual</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Heating QC</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Kitchen Qual</name>
+        <rename/>
+      </field>
+      <field>
+        <name>MS Zoning</name>
+        <rename/>
+      </field>
+      <field>
         <name>Roof Style</name>
         <rename/>
       </field>
@@ -2441,6 +2774,10 @@ ORDER BY amesdbtemp.pid;
         <rename/>
       </field>
       <field>
+        <name>MS SubClass</name>
+        <rename/>
+      </field>
+      <field>
         <name>mssubclass_description</name>
         <rename/>
       </field>
@@ -2458,6 +2795,18 @@ ORDER BY amesdbtemp.pid;
       </field>
       <field>
         <name>Half Bath</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Sale Date</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Sale Type</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Sale Condition</name>
         <rename/>
       </field>
       <field>
@@ -2491,405 +2840,8 @@ ORDER BY amesdbtemp.pid;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Text file output 3</name>
-    <type>TextFileOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <separator>;</separator>
-    <enclosure>"</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>D:\\Elephane</name>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery/>
-    </file>
-    <fields>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>752</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>AmesProperty CSV</name>
-    <type>CsvInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <filename>D:\Github\etlproject-e5\sources\AmesProperty.csv</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
-    <separator>;</separator>
-    <enclosure/>
-    <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <format>mixed</format>
-    <encoding/>
-    <fields>
-      <field>
-        <name>PID</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Lot Frontage</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Lot Area</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Street</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Alley</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Lot Shape</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>20</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Land Contour</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>3</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Utilities</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>6</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Lot Config</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>7</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Land Slope</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>3</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Neighborhood</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>19</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Condition 1</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>30</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Condition 2</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>6</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Bldg Type</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>6</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>House Style</name>
-        <type>String</type>
-        <format/>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>6</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Overall Qual</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Overall Cond</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Year Built</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Year Remod/Add</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Multiway merge join 4</name>
-    <type>MultiwayMergeJoin</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>INNER</join_type>
-    <step0>Select values 2</step0>
-    <step1>AmesProperty CSV</step1>
-    <number_input>2</number_input>
-    <keys>
-      <key>pid</key>
-      <key>PID</key>
-    </keys>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>752</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Text file output 4</name>
-    <type>TextFileOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <separator>;</separator>
-    <enclosure>"</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>D:\\Union</name>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery/>
-    </file>
-    <fields>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>880</xloc>
-      <yloc>32</yloc>
+      <xloc>560</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2910,6 +2862,26 @@ ORDER BY amesdbtemp.pid;
         <rename/>
       </field>
       <field>
+        <name>Exter Cond</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Exter Qual</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Heating QC</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Kitchen Qual</name>
+        <rename/>
+      </field>
+      <field>
+        <name>MS Zoning</name>
+        <rename/>
+      </field>
+      <field>
         <name>Roof Style</name>
         <rename/>
       </field>
@@ -3010,6 +2982,10 @@ ORDER BY amesdbtemp.pid;
         <rename/>
       </field>
       <field>
+        <name>MS SubClass</name>
+        <rename/>
+      </field>
+      <field>
         <name>mssubclass_description</name>
         <rename/>
       </field>
@@ -3030,6 +3006,18 @@ ORDER BY amesdbtemp.pid;
         <rename/>
       </field>
       <field>
+        <name>Sale Date</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Sale Type</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Sale Condition</name>
+        <rename/>
+      </field>
+      <field>
         <name>saleprice</name>
         <rename/>
       </field>
@@ -3047,6 +3035,14 @@ ORDER BY amesdbtemp.pid;
       </field>
       <field>
         <name>Kitchen Qual_1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>MoSold</name>
+        <rename/>
+      </field>
+      <field>
+        <name>YrSold</name>
         <rename/>
       </field>
       <field>
@@ -3132,41 +3128,8 @@ ORDER BY amesdbtemp.pid;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>880</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Multiway merge join 5</name>
-    <type>MultiwayMergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>INNER</join_type>
-    <step0>Filter rows</step0>
-    <step1>Select values 3</step1>
-    <number_input>2</number_input>
-    <keys>
-      <key>PID</key>
-      <key>pid</key>
-    </keys>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>736</xloc>
-      <yloc>288</yloc>
+      <xloc>752</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3195,7 +3158,7 @@ ORDER BY amesdbtemp.pid;
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>D:\\Final</name>
+      <name>D:\\Final_2</name>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>
@@ -3222,8 +3185,457 @@ ORDER BY amesdbtemp.pid;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
-      <yloc>368</yloc>
+      <xloc>752</xloc>
+      <yloc>688</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Extract month and year</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>Y</failIfNoFile>
+    <calculation>
+      <field_name>MoSold</field_name>
+      <calc_type>MONTH_OF_DATE</calc_type>
+      <field_a>Sale Date</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>None</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>YrSold</field_name>
+      <calc_type>YEAR_OF_DATE</calc_type>
+      <field_a>Sale Date</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>None</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 4</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>PID</name>
+        <rename/>
+      </field>
+      <field>
+        <name>BsmtFin Type 1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>BsmtFin Type 2</name>
+        <rename/>
+      </field>
+      <field>
+        <name>BsmtFin SF 1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>BsmtFin SF 2</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Bsmt Exposure</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Bsmt Half Bath</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Bsmt Full Bath</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Bsmt Cond</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Bsmt Unf SF</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Bsmt Qual</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Total Bsmt SF</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Garage Cond</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Garage Type</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Garage Yr Blt</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Garage Cars</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Garage Qual</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Garage Finish</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Garage Area</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Misc Feature</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Misc Val</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Pool QC</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Pool Area</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Roof Style</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Roof Matl</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Exterior 1st</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Exterior 2nd</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Mas Vnr Type</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Mas Vnr Area</name>
+        <rename/>
+      </field>
+      <field>
+        <name>foundation</name>
+        <rename/>
+      </field>
+      <field>
+        <name>heating</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Central Air</name>
+        <rename/>
+      </field>
+      <field>
+        <name>electrical</name>
+        <rename/>
+      </field>
+      <field>
+        <name>1st Flr SF</name>
+        <rename/>
+      </field>
+      <field>
+        <name>2nd Flr SF</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Low Qual Fin SF</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Kitchen AbvGr</name>
+        <rename>Kitchen</rename>
+      </field>
+      <field>
+        <name>TotRms AbvGrd</name>
+        <rename/>
+      </field>
+      <field>
+        <name>functional</name>
+        <rename/>
+      </field>
+      <field>
+        <name>fireplaces</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Fireplace Qu</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Paved Drive</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Wood Deck SF</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Open Porch SF</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Enclosed Porch</name>
+        <rename/>
+      </field>
+      <field>
+        <name>3Ssn Porch</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Screen Porch</name>
+        <rename/>
+      </field>
+      <field>
+        <name>fence</name>
+        <rename/>
+      </field>
+      <field>
+        <name>mssubclass_description</name>
+        <rename>MSSubClass</rename>
+      </field>
+      <field>
+        <name>mszoning_description</name>
+        <rename>MSZoning</rename>
+      </field>
+      <field>
+        <name>bedrooms</name>
+        <rename>Bedroom</rename>
+      </field>
+      <field>
+        <name>Full Bath</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Half Bath</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Sale Date</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Sale Type</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Sale Condition</name>
+        <rename/>
+      </field>
+      <field>
+        <name>saleprice</name>
+        <rename>SalePrice </rename>
+      </field>
+      <field>
+        <name>Exter Qual_1</name>
+        <rename>ExterQual</rename>
+      </field>
+      <field>
+        <name>Exter Cond_1</name>
+        <rename>ExterCond</rename>
+      </field>
+      <field>
+        <name>Kitchen Qual_1</name>
+        <rename>KitchenQual</rename>
+      </field>
+      <field>
+        <name>Heating QC_1</name>
+        <rename>HeatingQC</rename>
+      </field>
+      <field>
+        <name>MoSold</name>
+        <rename/>
+      </field>
+      <field>
+        <name>YrSold</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Lot Frontage</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Lot Area</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Street</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Alley</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Lot Shape</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Land Contour</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Utilities</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Lot Config</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Land Slope</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Neighborhood</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Condition 1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Condition 2</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Bldg Type</name>
+        <rename/>
+      </field>
+      <field>
+        <name>House Style</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Overall Qual</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Overall Cond</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Year Built</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Year Remod/Add</name>
+        <rename>YearRemodAdd</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calculator</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>Y</failIfNoFile>
+    <calculation>
+      <field_name>Gr Liv Area</field_name>
+      <calc_type>ADD</calc_type>
+      <field_a>1st Flr SF</field_a>
+      <field_b>2nd Flr SF</field_b>
+      <field_c>Low Qual Fin SF</field_c>
+      <value_type>None</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>576</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
