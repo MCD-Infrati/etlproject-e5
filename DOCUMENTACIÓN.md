@@ -7,37 +7,39 @@
 
 ## Pasos a ejecutar
 
-**1. Cargue de bases de datos de MongoDB:** Este paso consistió en el cargue en pentaho de las cuatro colecciones de MongoDB: BSMT, garage, misc y pool. Esto se hizo a través de los nodos de carga de Mongo que tiene pentaho como se puede apreciar en la siguiente imagen:
+Antes de iniciar con la documentación, es importante hacer una anotación importante. Los pasos 1 y 2 se ejecutaron con el propósito de generar al final un listado códigos únicos de la variable PID (llave). Esto lo hicimos con el propósito de asegurarnos que todos los cruces posteriores con las distintas bases de datos (pasos 3 a 6) resulten correctos. Habiendo dicho esto, a continuación se describen los pasos que se llevaron a cabo:
 
-![image](https://github.com/MCD-Infrati/etlproject-e5/assets/126924740/55f1f9a2-1b9d-477b-85ea-86305284a467)
+**1. Cargue de bases de datos BSMNT (Mongo) y la base amesdbtemp (Elephant) elección únicamente de codigos PID:** Este paso consistió en el cargue de dos bases, bsmnt de Mongo y amesdbtemp (Elephant). Es importante anotar que aunque en este paso se cargaron todas las variables de la base, en los nodos posteriores (en la imagen, "Valores_BSMNT" y "Valores Elephane") se eligieron solamente las que referenciaban al código PID, pues recordemos que, como se decía anteriormente, estos primeros dos pasos se ejecutan con el único propósito de dejar al final un listado de códigos únicos. Se realiza entonces el join entre estas dos bases, mientras que los nodos que siguen después de este nodo: "Null_J(B_E)2, "Concatena_J(B-E)", y así hasta llegar al nodo "Ordena_F-J(B-E)" comprende una serie de operaciones de transformación sobre el campo PID, que al final del flujo nos permite tener los valores únicos requeridos.
 
-**2: Reorganización de campos en las bases de datos de MongoDB:** Se realizó una reorganización de las variables en cada una de las cuatro colecciones de MongoDB tal como lo pedía el enunciado.
+![1](https://github.com/MCD-Infrati/etlproject-e5/assets/126924740/7e28dd82-015f-4f5b-b8d2-1fa5064ba158)
 
-![image](https://github.com/MCD-Infrati/etlproject-e5/assets/126924740/6c9347aa-374d-4493-ab15-c184994f1616)
+**2: Cargue de archivo CSV AmesProperty y generación de listado de códigos únicos:** Se realizó inicialmente el cargue del archivo CSV AmesProperty. Seguidamente, se realiza el join entre este archivo y el archivo generado en el paso anterior que resultó de la unión de las bases bsmnt (Mongo) y amesdbtemp (Elephant). Seguidamente, se realizan los mismos pasos de depuración del campo del código para poder tener al final el listado de códigos únicos requeridos. 
 
-![image](https://github.com/MCD-Infrati/etlproject-e5/assets/126924740/a3e84c0b-6e72-48b0-a871-dc0e47dd70a5)
+![2](https://github.com/MCD-Infrati/etlproject-e5/assets/126924740/21c6590e-4711-4428-8203-fe3d88eee395)
 
-![image](https://github.com/MCD-Infrati/etlproject-e5/assets/126924740/7ab3368c-f2db-450a-9efc-c469ef8d1569)
+**3. Cargue de base de datos completa BSMNT (Mongo) y unión:** En este paso se cargó la base bsmnt de Mongo. Recordemos que aunque esta base ya se cargó en el paso 1, en ese paso no se seleccionaron todas las variables, puesto que los pasos 1 y 2 se ejecutaron con el propósito de dejar un listado único de PID, por lo que esa era la única variable de interés en esos pasos. Ahora, entonces, se carga la base completa bsmnt y se aplica la primera transformación que consistió en el reemplazo de valores nulos (NA para variables cualitativas y 0 para cuantitativas). Seguidamente, se hace el join con la base de listados únicos resultante de la aplicación de los pasos 1 y 2.
 
-![image](https://github.com/MCD-Infrati/etlproject-e5/assets/126924740/bc92b89c-ad50-4934-8965-e21a83c11db8)
+![3](https://github.com/MCD-Infrati/etlproject-e5/assets/126924740/7f57c6d8-7f71-48f9-82e1-66244ffd6d01)
 
-**3. Realización de joins entre las bases de datos de MongoDb:** Este paso consistió en el uso de un nodo multiway merge de pentaho, a través del cual se realizaron los joins entre bsmnt y garage. Posteriormente, esta base resultante se unió con la base misc. Finalmente, la base resultante de estas uniones se unió
-con la última base pool. Esto se muestra en la siguiente imagen.
+**4. Cargue de bases de datos completas de Elephant, transformaciones y unión:** En este paso se cargaron de forma completa todas las tablas que están en Elephant. En la imagen abajo se deja la consulta SQL que permitió el cargue de estas tablas en solo una. En esta consulta se puede apreciar que se realiza la transformación del cálculo del total de baños. Seguidamente se realiza la otra transformación requerida, que es la extracción del mes y del año del campo Sale Date. Seguidamente, se aplica otra transformación requerida que es la creación del nuevo campo "Gr Live Area" que se creó a partir de la suma de los tres campos 1st Flr SF, 2dn Flr SF y Low Qual Fin SF. Luego entonces se hace el join entre la base resultante de este paso, y la anterior que se había generado ya en el paso 3. 
 
- ![image](https://github.com/MCD-Infrati/etlproject-e5/assets/126924740/a6ccfc40-c725-4f23-b1ce-586a9d5b55a9)
+![image](https://github.com/MCD-Infrati/etlproject-e5/assets/126924740/08ea202e-aa42-4db9-8542-23d94d15d2ff)
 
- **4. Selección de variables:** De la base resultante del punto 3. se realiza una selección de variables tal como se muestra en la siguiente imagen:
+![image](https://github.com/MCD-Infrati/etlproject-e5/assets/126924740/a48e6198-afb8-4e42-8cb2-509159673147)
 
- ![image](https://github.com/MCD-Infrati/etlproject-e5/assets/126924740/aa67295e-2d03-4060-9e3a-e349959a3d9e)
+**5. Cargue de archivo CSV AmesProperty, transformación y unión:** En este paso se carga el archivo CSV AmesProperty. Seguidamente, se realiza la otra transformación requerida que consistió en la imputación de los valores de la variable "Year Built" a los valores nulos de la variable "Year Remod/Add". Se realizó posteriormente el join entre la base resultante de este paso y la que se había generado ya en el paso 4. 
 
- **5. Aplicación de filtro:** Se aplica un filtro a través del cual se desea sacar de la base de datos todos aquellos registros que tengan el valor de PID null. Se genera entonces una base sin estos nulos (text file output).
+![image](https://github.com/MCD-Infrati/etlproject-e5/assets/126924740/578b4ba1-4aa1-4b40-9138-77a5313f29b1)
 
-![image](https://github.com/MCD-Infrati/etlproject-e5/assets/126924740/ef2463bc-0462-4e8b-be77-64e481ab8990)
+**6. Cargue de bases restantes, transformación y unión para generación de archivo final:** En este paso final, se cargan el resto de bases que son garage, misc y pool, todas provenientes de Mongo. En el caso de garage, se evidencia que tiene algunos valores nulos, por lo que se realiza la transformación requerida que consistió en el reemplazo de nulos (NA para variables cualitativas y 0 para cuantitativas). Seguidamente, se hace un join entre la base resultante de esta transformación y la que ya se había generado en el paso 5. Se hace lo mismo para base misc, a la cual no se le aplica transformación alguna de nulos pues no tiene; se hace una unión entre esta base y la resultante hasta el momento. Luego, se hace exactamente lo mismo para la base pool. En el nodo final "Select values 2" se depuran algunas variables y se renombran otras, esto con el fin de guardar completa coherencia con el orden y nombramiento de las variables. Al final, se genera entonces el archivo requerido.
 
-**6: Cargue de bases de datos de Elephant:** Se ingresa a la aplicación web de ElephantSQL y allí se crea la instancia "Proyecto_ETL_E5". Luego, se ejecuta el script "scriptAmesDB.sql", para entonces subir los datos de la carpeta scriptDatos. En la siguiente imagen se presenta el script SQL de la consulta a Elephant:
+![image](https://github.com/MCD-Infrati/etlproject-e5/assets/126924740/af7d1273-d034-4c9d-b40b-faa1d689bbcc)
 
-![image](https://github.com/MCD-Infrati/etlproject-e5/assets/126924740/6bab16c5-af2b-4972-bd7c-5b8fea052308)
+**OUTPUS RESULTANTES DEL PROCESO:**
 
+- ARCHIVO_FINAL (csv): contiene el archivo de salida en formato .csv con todas las variables requeridas.
+- ETL_FINAL (ktr): archivo de Pentaho que contiene todo el pipeline con los pasos anteriores ejecutados.
+- DOCUMENTACIÓN (.md): archivo actual el cual contiene toda la documentación de los pasos ejecutados.
 
 
 
