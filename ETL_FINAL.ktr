@@ -430,7 +430,7 @@
     <created_date>2024/06/05 21:04:34.432</created_date>
     <modified_user>-</modified_user>
     <modified_date>2024/06/05 21:04:34.432</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -769,7 +769,7 @@
     </hop>
     <hop>
       <from>Select values 2</from>
-      <to>Text file output</to>
+      <to>ARCHIVO_FINAL</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -784,7 +784,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>D:\Github\etlproject-e5\sources\AmesProperty.csv</filename>
+    <filename>C:\Users\andre\OneDrive\GITHUB\etlproject-e5\sources\AmesProperty.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -836,7 +836,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>D:\Github\etlproject-e5\sources\AmesProperty.csv</filename>
+    <filename>C:\Users\andre\OneDrive\GITHUB\etlproject-e5\sources\AmesProperty.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -1076,6 +1076,33 @@
     </GUI>
   </step>
   <step>
+    <name>Append streams</name>
+    <type>Append</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <head_name>Set field value</head_name>
+    <tail_name>Filter rows</tail_name>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
+      <yloc>784</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>BSMT_MongoDB</name>
     <type>MongoDbInput</type>
     <description/>
@@ -1284,92 +1311,6 @@
     </GUI>
   </step>
   <step>
-    <name>Concatena_J(F-A)</name>
-    <type>ConcatFields</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <separator>;</separator>
-    <enclosure>"</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>N</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name/>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
-    <fields>
-      <field>
-        <name>codigo</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>both</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>PID</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>both</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-    <ConcatFields>
-      <targetFieldName>Concatenado</targetFieldName>
-      <targetFieldLength>0</targetFieldLength>
-      <removeSelectedFields>N</removeSelectedFields>
-    </ConcatFields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Concatena_J(B-E)</name>
     <type>ConcatFields</type>
     <description/>
@@ -1452,6 +1393,92 @@
     <GUI>
       <xloc>768</xloc>
       <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Concatena_J(F-A)</name>
+    <type>ConcatFields</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>;</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name/>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>codigo</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>PID</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <ConcatFields>
+      <targetFieldName>Concatenado</targetFieldName>
+      <targetFieldLength>0</targetFieldLength>
+      <removeSelectedFields>N</removeSelectedFields>
+    </ConcatFields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2701,6 +2728,105 @@ ORDER BY amesdbtemp.pid;
     </GUI>
   </step>
   <step>
+    <name>Filas_J(B-E)</name>
+    <type>SplitFieldToRows3</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <splitfield>Concatenado</splitfield>
+    <delimiter>;</delimiter>
+    <newfield>codigo</newfield>
+    <rownum>N</rownum>
+    <rownum_field/>
+    <resetrownumber>N</resetrownumber>
+    <delimiter_is_regex>Y</delimiter_is_regex>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filas_J(F-A)</name>
+    <type>SplitFieldToRows3</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <splitfield>Concatenado</splitfield>
+    <delimiter>;</delimiter>
+    <newfield>codigo</newfield>
+    <rownum>N</rownum>
+    <rownum_field/>
+    <resetrownumber>N</resetrownumber>
+    <delimiter_is_regex>Y</delimiter_is_regex>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>176</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Set field value</send_true_to>
+    <send_false_to>Append streams</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>Year Remod/Add</leftvalue>
+        <function>IS NULL</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>176</xloc>
+      <yloc>704</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Filtro_F-J(F-A)</name>
     <type>FilterRows</type>
     <description/>
@@ -2858,134 +2984,6 @@ ORDER BY amesdbtemp.pid;
     </GUI>
   </step>
   <step>
-    <name>Null_Garage</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <replaceAllByValue/>
-    <replaceAllMask/>
-    <selectFields>Y</selectFields>
-    <selectValuesType>N</selectValuesType>
-    <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>Order</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Garage Cond</name>
-        <value>NA</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Garage Type</name>
-        <value>NA</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Garage Yr Blt</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Garage Cars</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Garage Qual</name>
-        <value>NA</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Garage Finish</name>
-        <value>NA</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Garage Area</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1184</xloc>
-      <yloc>784</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Null_J(F-A)</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <replaceAllByValue/>
-    <replaceAllMask/>
-    <selectFields>Y</selectFields>
-    <selectValuesType>N</selectValuesType>
-    <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>codigo</name>
-        <value/>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>PID</name>
-        <value/>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>592</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Join(BMST-Elephane)</name>
     <type>MergeJoin</type>
     <description/>
@@ -3016,6 +3014,40 @@ ORDER BY amesdbtemp.pid;
     <GUI>
       <xloc>448</xloc>
       <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join-(F-J(B-E)-Ames)</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>FULL OUTER</join_type>
+    <step1>Ordena_F-J(B-E)</step1>
+    <step2>Ordena_Ames</step2>
+    <keys_1>
+      <key>codigo</key>
+    </keys_1>
+    <keys_2>
+      <key>PID</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3159,21 +3191,21 @@ ORDER BY amesdbtemp.pid;
     </GUI>
   </step>
   <step>
-    <name>Join-(F-J(B-E)-Ames)</name>
+    <name>Merge join 3</name>
     <type>MergeJoin</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <join_type>FULL OUTER</join_type>
-    <step1>Ordena_F-J(B-E)</step1>
-    <step2>Ordena_Ames</step2>
+    <join_type>RIGHT OUTER</join_type>
+    <step1>Ordena_Ames_H</step1>
+    <step2>Sort rows 2</step2>
     <keys_1>
-      <key>codigo</key>
+      <key>PID</key>
     </keys_1>
     <keys_2>
       <key>PID</key>
@@ -3187,8 +3219,110 @@ ORDER BY amesdbtemp.pid;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>208</yloc>
+      <xloc>592</xloc>
+      <yloc>784</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge join 4</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>RIGHT OUTER</join_type>
+    <step1>Sort rows 3</step1>
+    <step2>Sort rows 6</step2>
+    <keys_1>
+      <key>PID</key>
+    </keys_1>
+    <keys_2>
+      <key>PID</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>912</xloc>
+      <yloc>784</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge join 5</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Sort rows 7</step1>
+    <step2>Sort rows 4</step2>
+    <keys_1>
+      <key>PID</key>
+    </keys_1>
+    <keys_2>
+      <key>PID</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1056</xloc>
+      <yloc>880</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge join 6</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>RIGHT OUTER</join_type>
+    <step1>Sort rows 5</step1>
+    <step2>Sort rows 8</step2>
+    <keys_1>
+      <key>PID</key>
+    </keys_1>
+    <keys_2>
+      <key>PID</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1200</xloc>
+      <yloc>992</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3293,6 +3427,88 @@ ORDER BY amesdbtemp.pid;
     </GUI>
   </step>
   <step>
+    <name>Null_Garage</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>Order</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Garage Cond</name>
+        <value>NA</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Garage Type</name>
+        <value>NA</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Garage Yr Blt</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Garage Cars</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Garage Qual</name>
+        <value>NA</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Garage Finish</name>
+        <value>NA</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Garage Area</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1184</xloc>
+      <yloc>784</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Null_J(B-E)</name>
     <type>IfNull</type>
     <description/>
@@ -3339,8 +3555,8 @@ ORDER BY amesdbtemp.pid;
     </GUI>
   </step>
   <step>
-    <name>POOL - MongoDB</name>
-    <type>MongoDbInput</type>
+    <name>Null_J(F-A)</name>
+    <type>IfNull</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -3349,85 +3565,26 @@ ORDER BY amesdbtemp.pid;
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <use_connection_string>Y</use_connection_string>
-    <use_legacy_options>N</use_legacy_options>
-    <connection_string>Encrypted 6d6f6e676f64622b7372763a2f2f696e66726174693a696e667261746940636c7573746572302e763572696835622e6d6f6e676f64622e6e65742f3f726574727957726974657183ecddbd0f8185d9a618a47fcc9bbbc3</connection_string>
-    <hostname>localhost</hostname>
-    <port>27017</port>
-    <use_all_replica_members>N</use_all_replica_members>
-    <db_name>test</db_name>
-    <fields_name/>
-    <collection>pool</collection>
-    <json_field_name>json</json_field_name>
-    <json_query/>
-    <auth_database/>
-    <auth_user/>
-    <auth_password>Encrypted </auth_password>
-    <auth_mech/>
-    <auth_kerberos>N</auth_kerberos>
-    <connect_timeout/>
-    <socket_timeout/>
-    <use_ssl_socket_factory>N</use_ssl_socket_factory>
-    <read_preference>primary</read_preference>
-    <output_json>N</output_json>
-    <query_is_pipeline>N</query_is_pipeline>
-    <allow_disk_use>N</allow_disk_use>
-    <execute_for_each_row>N</execute_for_each_row>
-    <mongo_fields>
-      <mongo_field>
-        <field_name>PID</field_name>
-        <field_path>$.PID</field_path>
-        <field_type>Integer</field_type>
-      </mongo_field>
-      <mongo_field>
-        <field_name>_id</field_name>
-        <field_path>$._id</field_path>
-        <field_type>String</field_type>
-      </mongo_field>
-      <mongo_field>
-        <field_name>Pool QC</field_name>
-        <field_path>$.Pool QC</field_path>
-        <field_type>String</field_type>
-      </mongo_field>
-      <mongo_field>
-        <field_name>Pool Area</field_name>
-        <field_path>$.Pool Area</field_path>
-        <field_type>Integer</field_type>
-      </mongo_field>
-    </mongo_fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1472</xloc>
-      <yloc>992</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Valores_J(B-E)</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
     <fields>
-      <select_unspecified>N</select_unspecified>
-      <remove>
+      <field>
+        <name>codigo</name>
+        <value/>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
         <name>PID</name>
-      </remove>
-      <remove>
-        <name>PID_1</name>
-      </remove>
+        <value/>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -3438,143 +3595,13 @@ ORDER BY amesdbtemp.pid;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>944</xloc>
-      <yloc>48</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Valores_F-J(B-E)</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>Concatenado</name>
-      </remove>
-      <meta>
-        <name>codigo</name>
-        <rename>codigo</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1120</xloc>
+      <xloc>592</xloc>
       <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Valores_F-J(F-A)</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>Concatenado</name>
-      </remove>
-      <meta>
-        <name>codigo</name>
-        <rename>codigo</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>48</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Valores_J(F-A)</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>codigo</name>
-      </remove>
-      <remove>
-        <name>PID</name>
-      </remove>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>320</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ordena_Elephane</name>
+    <name>Ordena_Ames</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -3610,8 +3637,50 @@ ORDER BY amesdbtemp.pid;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
-      <yloc>96</yloc>
+      <xloc>768</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Ordena_Ames_H</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>PID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>784</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3658,194 +3727,7 @@ ORDER BY amesdbtemp.pid;
     </GUI>
   </step>
   <step>
-    <name>Filas_J(B-E)</name>
-    <type>SplitFieldToRows3</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <splitfield>Concatenado</splitfield>
-    <delimiter>;</delimiter>
-    <newfield>codigo</newfield>
-    <rownum>N</rownum>
-    <rownum_field/>
-    <resetrownumber>N</resetrownumber>
-    <delimiter_is_regex>Y</delimiter_is_regex>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1120</xloc>
-      <yloc>48</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filas_J(F-A)</name>
-    <type>SplitFieldToRows3</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <splitfield>Concatenado</splitfield>
-    <delimiter>;</delimiter>
-    <newfield>codigo</newfield>
-    <rownum>N</rownum>
-    <rownum_field/>
-    <resetrownumber>N</resetrownumber>
-    <delimiter_is_regex>Y</delimiter_is_regex>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>176</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Unicos_F-J(F-A)</name>
-    <type>UniqueRowsByHashSet</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <store_values>Y</store_values>
-    <reject_duplicate_row>N</reject_duplicate_row>
-    <error_description/>
-    <fields>
-      <field>
-        <name>codigo</name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>48</xloc>
-      <yloc>336</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Valores_BMST</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>PID</name>
-        <rename>PID</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>176</xloc>
-      <yloc>16</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Valores_Elephane</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>pid</name>
-        <rename>PID</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>176</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ordena_Ames</name>
+    <name>Ordena_BSMT_H</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -3881,8 +3763,92 @@ ORDER BY amesdbtemp.pid;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>128</yloc>
+      <xloc>320</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Ordena_Elephane</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>PID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Ordena_Elephane_H</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>pid</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>576</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3971,8 +3937,8 @@ ORDER BY amesdbtemp.pid;
     </GUI>
   </step>
   <step>
-    <name>Ordena_Elephane_H</name>
-    <type>SortRows</type>
+    <name>POOL - MongoDB</name>
+    <type>MongoDbInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -3981,23 +3947,52 @@ ORDER BY amesdbtemp.pid;
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>pid</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
+    <use_connection_string>Y</use_connection_string>
+    <use_legacy_options>N</use_legacy_options>
+    <connection_string>Encrypted 6d6f6e676f64622b7372763a2f2f696e66726174693a696e667261746940636c7573746572302e763572696835622e6d6f6e676f64622e6e65742f3f726574727957726974657183ecddbd0f8185d9a618a47fcc9bbbc3</connection_string>
+    <hostname>localhost</hostname>
+    <port>27017</port>
+    <use_all_replica_members>N</use_all_replica_members>
+    <db_name>test</db_name>
+    <fields_name/>
+    <collection>pool</collection>
+    <json_field_name>json</json_field_name>
+    <json_query/>
+    <auth_database/>
+    <auth_user/>
+    <auth_password>Encrypted </auth_password>
+    <auth_mech/>
+    <auth_kerberos>N</auth_kerberos>
+    <connect_timeout/>
+    <socket_timeout/>
+    <use_ssl_socket_factory>N</use_ssl_socket_factory>
+    <read_preference>primary</read_preference>
+    <output_json>N</output_json>
+    <query_is_pipeline>N</query_is_pipeline>
+    <allow_disk_use>N</allow_disk_use>
+    <execute_for_each_row>N</execute_for_each_row>
+    <mongo_fields>
+      <mongo_field>
+        <field_name>PID</field_name>
+        <field_path>$.PID</field_path>
+        <field_type>Integer</field_type>
+      </mongo_field>
+      <mongo_field>
+        <field_name>_id</field_name>
+        <field_path>$._id</field_path>
+        <field_type>String</field_type>
+      </mongo_field>
+      <mongo_field>
+        <field_name>Pool QC</field_name>
+        <field_path>$.Pool QC</field_path>
+        <field_type>String</field_type>
+      </mongo_field>
+      <mongo_field>
+        <field_name>Pool Area</field_name>
+        <field_path>$.Pool Area</field_path>
+        <field_type>Integer</field_type>
+      </mongo_field>
+    </mongo_fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -4007,185 +4002,8 @@ ORDER BY amesdbtemp.pid;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
-      <yloc>576</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ordena_Ames_H</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>PID</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>784</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ordena_BSMT_H</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>PID</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>320</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Set field value</send_true_to>
-    <send_false_to>Append streams</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>Year Remod/Add</leftvalue>
-        <function>IS NULL</function>
-        <rightvalue/>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>176</xloc>
-      <yloc>704</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Set field value</name>
-    <type>SetValueField</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>Year Remod/Add</name>
-        <replaceby>Year Built</replaceby>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>320</xloc>
-      <yloc>704</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Append streams</name>
-    <type>Append</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <head_name>Set field value</head_name>
-    <tail_name>Filter rows</tail_name>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>320</xloc>
-      <yloc>784</yloc>
+      <xloc>1472</xloc>
+      <yloc>992</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4238,6 +4056,389 @@ ORDER BY amesdbtemp.pid;
     </GUI>
   </step>
   <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>PID_1_1</name>
+        <rename>PID</rename>
+      </field>
+      <field>
+        <name>mssubclass_description</name>
+        <rename>MSSubClass</rename>
+      </field>
+      <field>
+        <name>mszoning_description</name>
+        <rename>MSZoning</rename>
+      </field>
+      <field>
+        <name>Lot Frontage</name>
+        <rename>LotFrontage</rename>
+      </field>
+      <field>
+        <name>Lot Area</name>
+        <rename>LotArea</rename>
+      </field>
+      <field>
+        <name>Street</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Alley</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Lot Shape</name>
+        <rename>LotShape</rename>
+      </field>
+      <field>
+        <name>Land Contour</name>
+        <rename>LandContour</rename>
+      </field>
+      <field>
+        <name>Utilities</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Lot Config</name>
+        <rename>LotConfig</rename>
+      </field>
+      <field>
+        <name>Land Slope</name>
+        <rename>LandSlope</rename>
+      </field>
+      <field>
+        <name>Neighborhood</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Condition 1</name>
+        <rename>Condition1</rename>
+      </field>
+      <field>
+        <name>Condition 2</name>
+        <rename>Condition2</rename>
+      </field>
+      <field>
+        <name>Bldg Type</name>
+        <rename>BldgType</rename>
+      </field>
+      <field>
+        <name>House Style</name>
+        <rename>HouseStyle</rename>
+      </field>
+      <field>
+        <name>Overall Qual</name>
+        <rename>OverallQual</rename>
+      </field>
+      <field>
+        <name>Overall Cond</name>
+        <rename>OverallCond</rename>
+      </field>
+      <field>
+        <name>Year Built</name>
+        <rename>YearBuilt</rename>
+      </field>
+      <field>
+        <name>Year Remod/Add</name>
+        <rename>YearRemodAdd</rename>
+      </field>
+      <field>
+        <name>Roof Style</name>
+        <rename>RoofStyle</rename>
+      </field>
+      <field>
+        <name>Roof Matl</name>
+        <rename>RoofMatl</rename>
+      </field>
+      <field>
+        <name>Exterior 1st</name>
+        <rename>Exterior1st</rename>
+      </field>
+      <field>
+        <name>Exterior 2nd</name>
+        <rename>Exterior2nd</rename>
+      </field>
+      <field>
+        <name>Mas Vnr Type</name>
+        <rename>MasVnrType</rename>
+      </field>
+      <field>
+        <name>Mas Vnr Area</name>
+        <rename>MasVnrArea</rename>
+      </field>
+      <field>
+        <name>Exter Qual_1</name>
+        <rename>ExterQual</rename>
+      </field>
+      <field>
+        <name>Exter Cond_1</name>
+        <rename>ExterCond</rename>
+      </field>
+      <field>
+        <name>foundation</name>
+        <rename>Foundation</rename>
+      </field>
+      <field>
+        <name>Bsmt Qual</name>
+        <rename>BsmtQual</rename>
+      </field>
+      <field>
+        <name>Bsmt Cond</name>
+        <rename>BsmtCond</rename>
+      </field>
+      <field>
+        <name>Bsmt Exposure</name>
+        <rename>BsmtExposure</rename>
+      </field>
+      <field>
+        <name>BsmtFin Type 1</name>
+        <rename>BsmtFinType1</rename>
+      </field>
+      <field>
+        <name>BsmtFin SF 1</name>
+        <rename>BsmtFinSF1</rename>
+      </field>
+      <field>
+        <name>BsmtFin Type 2</name>
+        <rename>BsmtFinType2</rename>
+      </field>
+      <field>
+        <name>BsmtFin SF 2</name>
+        <rename>BsmtFinSF2</rename>
+      </field>
+      <field>
+        <name>Bsmt Unf SF</name>
+        <rename>BsmtUnfSF</rename>
+      </field>
+      <field>
+        <name>Total Bsmt SF</name>
+        <rename>TotalBsmtSF</rename>
+      </field>
+      <field>
+        <name>heating</name>
+        <rename>Heating</rename>
+      </field>
+      <field>
+        <name>Heating QC_1</name>
+        <rename>HeatingQC</rename>
+      </field>
+      <field>
+        <name>Central Air</name>
+        <rename>CentralAir</rename>
+      </field>
+      <field>
+        <name>electrical</name>
+        <rename>Electrical</rename>
+      </field>
+      <field>
+        <name>1st Flr SF</name>
+        <rename>1stFlrSF</rename>
+      </field>
+      <field>
+        <name>2nd Flr SF</name>
+        <rename>2ndFlrSF</rename>
+      </field>
+      <field>
+        <name>Low Qual Fin SF</name>
+        <rename>LowQualFinSF</rename>
+      </field>
+      <field>
+        <name>Gr Liv Area</name>
+        <rename>GrLivArea</rename>
+      </field>
+      <field>
+        <name>Bsmt Full Bath</name>
+        <rename>BsmtFullBath</rename>
+      </field>
+      <field>
+        <name>Bsmt Half Bath</name>
+        <rename>BsmtHalfBath</rename>
+      </field>
+      <field>
+        <name>Full Bath</name>
+        <rename>FullBath</rename>
+      </field>
+      <field>
+        <name>Half Bath</name>
+        <rename>HalfBath</rename>
+      </field>
+      <field>
+        <name>bedrooms</name>
+        <rename>Bedroom</rename>
+      </field>
+      <field>
+        <name>Kitchen AbvGr</name>
+        <rename>Kitchen</rename>
+      </field>
+      <field>
+        <name>Kitchen Qual_1</name>
+        <rename>KitchenQual</rename>
+      </field>
+      <field>
+        <name>TotRms AbvGrd</name>
+        <rename>TotRmsAbvGrd</rename>
+      </field>
+      <field>
+        <name>functional</name>
+        <rename>Functional</rename>
+      </field>
+      <field>
+        <name>fireplaces</name>
+        <rename>Fireplaces</rename>
+      </field>
+      <field>
+        <name>Fireplace Qu</name>
+        <rename>FireplaceQu</rename>
+      </field>
+      <field>
+        <name>Garage Type</name>
+        <rename>GarageType</rename>
+      </field>
+      <field>
+        <name>Garage Yr Blt</name>
+        <rename>GarageYrBlt</rename>
+      </field>
+      <field>
+        <name>Garage Finish</name>
+        <rename>GarageFinish</rename>
+      </field>
+      <field>
+        <name>Garage Cars</name>
+        <rename>GarageCars</rename>
+      </field>
+      <field>
+        <name>Garage Area</name>
+        <rename>GarageArea</rename>
+      </field>
+      <field>
+        <name>Garage Qual</name>
+        <rename>GarageQual</rename>
+      </field>
+      <field>
+        <name>Garage Cond</name>
+        <rename>GarageCond</rename>
+      </field>
+      <field>
+        <name>Paved Drive</name>
+        <rename>PavedDrive</rename>
+      </field>
+      <field>
+        <name>Wood Deck SF</name>
+        <rename>WoodDeckSF</rename>
+      </field>
+      <field>
+        <name>Open Porch SF</name>
+        <rename>OpenPorchSF</rename>
+      </field>
+      <field>
+        <name>Enclosed Porch</name>
+        <rename>EnclosedPorch</rename>
+      </field>
+      <field>
+        <name>3Ssn Porch</name>
+        <rename>3SsnPorch</rename>
+      </field>
+      <field>
+        <name>Screen Porch</name>
+        <rename>ScreenPorch</rename>
+      </field>
+      <field>
+        <name>Pool Area</name>
+        <rename>PoolArea</rename>
+      </field>
+      <field>
+        <name>Pool QC</name>
+        <rename>PoolQC</rename>
+      </field>
+      <field>
+        <name>fence</name>
+        <rename>Fence</rename>
+      </field>
+      <field>
+        <name>Misc Feature</name>
+        <rename>MiscFeature</rename>
+      </field>
+      <field>
+        <name>Misc Val</name>
+        <rename>MiscVal</rename>
+      </field>
+      <field>
+        <name>MoSold</name>
+        <rename>MoSold</rename>
+      </field>
+      <field>
+        <name>YrSold</name>
+        <rename>YrSold</rename>
+      </field>
+      <field>
+        <name>Sale Type</name>
+        <rename>SaleType</rename>
+      </field>
+      <field>
+        <name>Sale Condition</name>
+        <rename>SaleCondition</rename>
+      </field>
+      <field>
+        <name>saleprice</name>
+        <rename>SalePrice </rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1056</xloc>
+      <yloc>1088</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set field value</name>
+    <type>SetValueField</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Year Remod/Add</name>
+        <replaceby>Year Built</replaceby>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
+      <yloc>704</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Sort rows</name>
     <type>SortRows</type>
     <description/>
@@ -4276,40 +4477,6 @@ ORDER BY amesdbtemp.pid;
     <GUI>
       <xloc>592</xloc>
       <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Merge join 3</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>RIGHT OUTER</join_type>
-    <step1>Ordena_Ames_H</step1>
-    <step2>Sort rows 2</step2>
-    <keys_1>
-      <key>PID</key>
-    </keys_1>
-    <keys_2>
-      <key>PID</key>
-    </keys_2>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>592</xloc>
-      <yloc>784</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4398,40 +4565,6 @@ ORDER BY amesdbtemp.pid;
     </GUI>
   </step>
   <step>
-    <name>Merge join 4</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>RIGHT OUTER</join_type>
-    <step1>Sort rows 3</step1>
-    <step2>Sort rows 6</step2>
-    <keys_1>
-      <key>PID</key>
-    </keys_1>
-    <keys_2>
-      <key>PID</key>
-    </keys_2>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>912</xloc>
-      <yloc>784</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Sort rows 4</name>
     <type>SortRows</type>
     <description/>
@@ -4511,74 +4644,6 @@ ORDER BY amesdbtemp.pid;
     </remotesteps>
     <GUI>
       <xloc>1328</xloc>
-      <yloc>992</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Merge join 5</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>Sort rows 7</step1>
-    <step2>Sort rows 4</step2>
-    <keys_1>
-      <key>PID</key>
-    </keys_1>
-    <keys_2>
-      <key>PID</key>
-    </keys_2>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1056</xloc>
-      <yloc>880</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Merge join 6</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>RIGHT OUTER</join_type>
-    <step1>Sort rows 5</step1>
-    <step2>Sort rows 8</step2>
-    <keys_1>
-      <key>PID</key>
-    </keys_1>
-    <keys_2>
-      <key>PID</key>
-    </keys_2>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1200</xloc>
       <yloc>992</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4710,370 +4775,23 @@ ORDER BY amesdbtemp.pid;
     </GUI>
   </step>
   <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
+    <name>Unicos_F-J(F-A)</name>
+    <type>UniqueRowsByHashSet</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <store_values>Y</store_values>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
     <fields>
       <field>
-        <name>PID_1_1</name>
-        <rename>PID</rename>
+        <name>codigo</name>
       </field>
-      <field>
-        <name>1st Flr SF</name>
-        <rename/>
-      </field>
-      <field>
-        <name>2nd Flr SF</name>
-        <rename/>
-      </field>
-      <field>
-        <name>3Ssn Porch</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Alley</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Bldg Type</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Bsmt Cond</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Bsmt Exposure</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Bsmt Full Bath</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Bsmt Half Bath</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Bsmt Qual</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Bsmt Unf SF</name>
-        <rename/>
-      </field>
-      <field>
-        <name>BsmtFin SF 1</name>
-        <rename/>
-      </field>
-      <field>
-        <name>BsmtFin SF 2</name>
-        <rename/>
-      </field>
-      <field>
-        <name>BsmtFin Type 1</name>
-        <rename/>
-      </field>
-      <field>
-        <name>BsmtFin Type 2</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Central Air</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Condition 1</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Condition 2</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Enclosed Porch</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Exter Cond</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Exter Cond_1</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Exter Qual</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Exter Qual_1</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Exterior 1st</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Exterior 2nd</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Fireplace Qu</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Full Bath</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Garage Area</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Garage Cars</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Garage Cond</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Garage Finish</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Garage Qual</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Garage Type</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Garage Yr Blt</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Gr Liv Area</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Half Bath</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Heating QC</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Heating QC_1</name>
-        <rename/>
-      </field>
-      <field>
-        <name>House Style</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Kitchen AbvGr</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Kitchen Qual</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Kitchen Qual_1</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Land Contour</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Land Slope</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Lot Area</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Lot Config</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Lot Frontage</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Lot Shape</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Low Qual Fin SF</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MS SubClass</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MS Zoning</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Mas Vnr Area</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Mas Vnr Type</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Misc Feature</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Misc Val</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MoSold</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Neighborhood</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Open Porch SF</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Overall Cond</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Overall Qual</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Paved Drive</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Pool Area</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Pool QC</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Roof Matl</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Roof Style</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Sale Condition</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Sale Date</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Sale Type</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Screen Porch</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Street</name>
-        <rename/>
-      </field>
-      <field>
-        <name>TotRms AbvGrd</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Total Bsmt SF</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Utilities</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Wood Deck SF</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Year Built</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Year Remod/Add</name>
-        <rename/>
-      </field>
-      <field>
-        <name>YrSold</name>
-        <rename/>
-      </field>
-      <field>
-        <name>bedrooms</name>
-        <rename/>
-      </field>
-      <field>
-        <name>electrical</name>
-        <rename/>
-      </field>
-      <field>
-        <name>fence</name>
-        <rename/>
-      </field>
-      <field>
-        <name>fireplaces</name>
-        <rename/>
-      </field>
-      <field>
-        <name>foundation</name>
-        <rename/>
-      </field>
-      <field>
-        <name>functional</name>
-        <rename/>
-      </field>
-      <field>
-        <name>heating</name>
-        <rename/>
-      </field>
-      <field>
-        <name>mssubclass_description</name>
-        <rename/>
-      </field>
-      <field>
-        <name>mszoning_description</name>
-        <rename/>
-      </field>
-      <field>
-        <name>saleprice</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -5084,13 +4802,267 @@ ORDER BY amesdbtemp.pid;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1056</xloc>
-      <yloc>1088</yloc>
+      <xloc>48</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Text file output</name>
+    <name>Valores_BMST</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>PID</name>
+        <rename>PID</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>0</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>176</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Valores_Elephane</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>pid</name>
+        <rename>PID</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>176</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Valores_F-J(B-E)</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>Concatenado</name>
+      </remove>
+      <meta>
+        <name>codigo</name>
+        <rename>codigo</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Valores_F-J(F-A)</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>Concatenado</name>
+      </remove>
+      <meta>
+        <name>codigo</name>
+        <rename>codigo</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>48</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Valores_J(B-E)</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>PID</name>
+      </remove>
+      <remove>
+        <name>PID_1</name>
+      </remove>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>944</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Valores_J(F-A)</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>codigo</name>
+      </remove>
+      <remove>
+        <name>PID</name>
+      </remove>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>ARCHIVO_FINAL</name>
     <type>TextFileOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -5114,7 +5086,7 @@ ORDER BY amesdbtemp.pid;
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>D:\\Final</name>
+      <name>file</name>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>
@@ -5141,7 +5113,7 @@ ORDER BY amesdbtemp.pid;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>912</xloc>
+      <xloc>944</xloc>
       <yloc>1088</yloc>
       <draw>Y</draw>
     </GUI>
